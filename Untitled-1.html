@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <!-- Use Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Ionicons for Icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="Untitled-1.css">
+</head>
+
+<body>
+
+    <!-- Login Page -->
+    <div class="login-wrapper" id="loginPage">
+        <div class="glass-panel login-box">
+            <div class="login-header">
+                <ion-icon name="wallet-outline" class="school-icon"></ion-icon>
+                <h2>ExpenseTracker</h2>
+                <p>Welcome back</p>
+            </div>
+            <div class="input-group">
+                <ion-icon name="person-outline"></ion-icon>
+                <input type="text" id="username" placeholder="Username (admin)">
+            </div>
+            <div class="input-group">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input type="password" id="password" placeholder="Password (1234)">
+            </div>
+            <button id="loginBtn" class="primary-btn">Login</button>
+        </div>
+    </div>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container" id="dashboard" style="display: none;">
+
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel" id="sidebar">
+            <div class="sidebar-brand">
+                <ion-icon name="wallet-outline"></ion-icon>
+                <h2>ExpenseTracker</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active"><ion-icon name="grid-outline"></ion-icon> Dashboard</a>
+                <a href="#" class="nav-item"><ion-icon name="list-outline"></ion-icon> Transactions</a>
+                <a href="#" class="nav-item"><ion-icon name="pricetags-outline"></ion-icon> Categories</a>
+                <a href="#" class="nav-item"><ion-icon name="pie-chart-outline"></ion-icon> Budget</a>
+                <a href="#" class="nav-item"><ion-icon name="bar-chart-outline"></ion-icon> Reports</a>
+                <a href="#" class="nav-item"><ion-icon name="settings-outline"></ion-icon> Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <header class="top-nav glass-panel">
+                <div class="search-bar">
+                    <ion-icon name="search-outline"></ion-icon>
+                    <input type="text" placeholder="Search transactions...">
+                </div>
+                <div class="nav-actions">
+                    <button class="icon-btn"><ion-icon name="notifications-outline"></ion-icon></button>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=3b82f6&color=fff" alt="Admin">
+                        <span>Admin</span>
+                        <button id="logoutBtn" class="logout-btn" title="Logout"><ion-icon
+                                name="log-out-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-widgets">
+                <!-- Stat Cards -->
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon blue"><ion-icon name="wallet"></ion-icon></div>
+                    <div class="stat-info">
+                        <h3>Total Balance</h3>
+                        <p id="total-balance">$0</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon green"><ion-icon name="trending-up"></ion-icon></div>
+                    <div class="stat-info">
+                        <h3>Monthly Income</h3>
+                        <p id="monthly-income">$0</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon orange"><ion-icon name="trending-down"></ion-icon></div>
+                    <div class="stat-info">
+                        <h3>Monthly Expenses</h3>
+                        <p id="monthly-expenses">$0</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon purple"><ion-icon name="cash"></ion-icon></div>
+                    <div class="stat-info">
+                        <h3>Savings Goal</h3>
+                        <p id="savings-goal">$0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity Table -->
+            <div class="recent-activity glass-panel">
+                <div class="section-header">
+                    <h2>Recent Transactions</h2>
+                    <button class="secondary-btn">View All</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transaction-table-body">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="Untitled-1.js"></script>
+</body>
+
+</html>
